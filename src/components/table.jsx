@@ -40,7 +40,7 @@ const columns = [
       key:'network',
     },
     {
-      title:'已使用流量 MB',
+      title:'已使用流量',
       dataIndex:'network_in',
       key:'network_in',
     },
@@ -67,7 +67,7 @@ const columns = [
     
     ];
 const table =(props)=>{
-    return <Table columns={columns} dataSource={props.data}></Table>
+    return <Table columns={columns} scroll={{ x: 'max-content' }}dataSource={props.data}></Table>
 }
 export default table;
     

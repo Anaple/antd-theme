@@ -1,10 +1,11 @@
 import ServerCard from './Card';
 import React from 'react'
 import axios from 'axios';
-import { Row} from 'antd';
-import Header from'./Header';
+import {Layout,Row} from 'antd';
+import NavHeader from'./Header';
 import Table from  './table';
 import './body.css';
+const { Header ,Footer, Sider, Content } = Layout;
 React.Component.prototype.$axios=axios
 class Body extends React.Component{
     constructor(props){
@@ -15,13 +16,25 @@ class Body extends React.Component{
     }
     render(){
         return(
-            <div>
-            <Header/>
+            <Layout>
+            
+            <NavHeader/>
+           
+            <Layout>
+            
+          
+            
+           
+            <Content>
             {this.createtable()}
-            <Row  justify="center" gutter={[8, { xs: 8, sm: 16, md: 24, lg: 32 }]}>
+            <Row justify="center" gutter={[16, { xs: 8, sm: 16, md: 24, lg: 32 }]}>
             {this.createcard()}
             </Row>
-            </div>
+            </Content>
+            
+            </Layout>
+            <Footer>2021 React</Footer>
+            </Layout>
         )
     }
     componentDidMount() {
@@ -45,7 +58,7 @@ class Body extends React.Component{
         var data =[];
         var c =0
         this.state.server.map(item =>{
-            const network_all = Math.round(((item.network_in+item.network_out)/1024/1024));
+            const network_all = Math.round(((item.network_in+item.network_out)/1024/1024))+" MB ";
             data=[...data, {key: c++,name:item.name,status:item.online4,address:item.location,uptime:item.uptime,load:item.load,network:item.network_rx+"|"+item.network_tx,network_in:network_all}]   
         })
         return <Table data={data}></Table>
@@ -67,9 +80,9 @@ class Body extends React.Component{
             }
             else{
                 //掉线机器
-            return(
+            /*return(
                 <ServerCard avatar={avatar} title={item.name} cpu={item.cpu} ram={ram} rom={rom} description={item.type} disabled={true} up={up} down={down} network_all={network_all} date={item.uptime}/>
-            )
+            )*/
             }
             
         }

@@ -4,7 +4,7 @@ import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/ico
 const Header =()=>{
     return(
     <Menu theme="light" mode="horizontal" defaultSelectedKeys={['logo']}>
-        <Menu.Item key="logo"  >Server Status</Menu.Item>
+        <Menu.Item key="logo">Server Status</Menu.Item>
     </Menu>
     )
 
