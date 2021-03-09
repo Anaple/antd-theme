@@ -14,7 +14,7 @@
     "react-scripts": "4.0.2",
     "web-vitals": "^1.0.1"
   },
-  "proxy":"https://mk.icelakeex.com"
+ 
 
   ,
   "scripts": {
